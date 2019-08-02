@@ -1,0 +1,43 @@
+<a class="btn btn-info" [routerLink]="['/crear']">
+    Crear Usuario
+</a>
+<p></p>
+<div class="row mt-4">
+    <div class="col">
+        <table class="table table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>id</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>avatar</th>
+                    <th colspan="2">Acciones</th>
+                </tr>
+
+                <tr *ngFor="let users of lstUsers.data">
+                    <td>{{users.id}}</td>
+                    <td>{{users.first_name}}</td>
+                    <td>{{users.last_name}}</td>
+                    <td><img src="{{users.avatar}}"></td>
+                    <td><a class="btn btn-primary" [routerLink]="['/user',users.id]">Detalle</a></td>
+                    <td><a class="btn btn-success" [routerLink]="['/update',users.id]">Editar</a></td>
+
+                </tr>
+
+           
+            </thead>
+
+        </table>
+
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="listar/1">1</a></li>
+                <li class="page-item"><a class="page-link" href="listar/2">2 </a></li>
+                <li class="page-item"><a class="page-link" href="listar/3">3</a></li>
+                <li class="page-item"><a class="page-link" href="listar/4">4</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

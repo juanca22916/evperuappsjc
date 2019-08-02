@@ -1,0 +1,42 @@
+<div class="container">
+<h3>Crear Usuario</h3>
+<p></p>
+<div class="card" [hidden]="submitted" style="width: 400px;">
+    <div class="card-body">
+        <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" formControlName="nombre" name="nombre" placeholder="Ingrese Nombre"
+                    class="form-control" ngModel required>
+            </div>
+            <div class="form-group">
+                <input type="text" formControlName="apellidopat" name="apellidopat"
+                    placeholder="Ingrese apellido paterno" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" formControlName="apellidomat" name="apellidomat"
+                    placeholder="Ingrese apellido materno" class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="text" formControlName="email" name="email" placeholder="Ingrese email"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="date" formControlName="fchnac" name="fchnac" placeholder="Ingrese fecha nacimiento"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <input type="date" formControlName="fchingreso" name="fchingreso" placeholder="Ingrese fecha de ingreso"
+                    class="form-control">
+            </div>
+            <div class="form-group">
+                <button type="button" (click)="onSubmit()" class="btn btn-primary">Registrar</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div [hidden]="!submitted">
+    <a [routerLink]="['/listar']" class="btn btn-primary">Regresar</a>
+    <h4> {{mostrarResultado|json}}</h4>
+</div>
+</div>

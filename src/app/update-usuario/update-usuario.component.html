@@ -1,0 +1,42 @@
+<div class="container">
+    <h3>Actualizar Usuario</h3>
+    <p></p>
+    <div class="card" [hidden]="submitted" style="width: 400px;">
+        <div class="card-body">
+            <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="text" placeholder="Ingrese Nombre" formControlName="nombre" name="nombre"
+                        class="form-control" value="{{usuario.first_name}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="apellidopat" name="apellidopat"
+                        placeholder="Ingrese apellido paterno" class="form-control" value="{{usuario.last_name}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" formControlName="apellidomat" name="apellidomat"
+                        placeholder="Ingrese apellido materno" class="form-control" value="{{usuario.apellidomat}}">
+                </div>
+                <div class="form-group">
+                    <input type="text" placeholder="Ingrese email" formControlName="email" name="email"  value="{{usuario.email}}"
+                        placeholder="Ingrese email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fchnac" name="fchnac" placeholder="Ingrese fecha nacimiento"
+                        class="form-control"  value="{{usuario.fchnac}}">
+                </div>
+                <div class="form-group">
+                    <input type="date" formControlName="fchtermino" name="fchtermino"
+                        placeholder="Ingrese fecha de termino" class="form-control"  value="{{usuario.fchtermino}}">
+                </div>
+                <div class="form-group">
+                    <button type="button" (click)="onSubmit()" class="btn btn-primary">Actualizar</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div [hidden]="!submitted">
+        <a [routerLink]="['/listar']" class="btn btn-primary">Regresar</a>
+        <h4> {{mostrarResultado|json}}</h4>
+    </div>
+</div>
